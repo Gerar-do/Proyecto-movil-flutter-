@@ -12,7 +12,7 @@ class MyCard2 extends StatelessWidget{
         width: 300,
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Color(0xFFAC5454),
+          color: const Color(0xFFAC5454),
           borderRadius: BorderRadius.circular(16),
         ),
         child: const Column(
@@ -23,7 +23,7 @@ class MyCard2 extends StatelessWidget{
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Poppins',
-                fontSize: 15,
+                fontSize: 12,
               ),
             ),
             Text('Activa',
@@ -46,7 +46,7 @@ class MyCard2 extends StatelessWidget{
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Poppins',
-                    fontSize: 15,
+                    fontSize: 12,
                   ),
                 ),
                 Text('paciente',

@@ -21,10 +21,10 @@ class _PublicacionesPageState extends State<PublicacionesPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white,
         ),
-        title: Text(
+        title: const Text(
           'Publicaciones',
           style: TextStyle(
             color: Colors.white,
@@ -37,19 +37,19 @@ class _PublicacionesPageState extends State<PublicacionesPage> {
         padding: const EdgeInsets.all(25),
         children: <Widget>[
           Card(
-            margin: EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.symmetric(vertical: 10),
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Publicación 1',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  SizedBox(height: 5),
-                  Text('Descripción de la publicación 1.'),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 5),
+                  const Text('Descripción de la publicación 1.'),
+                  const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
                     child: ElevatedButton(
@@ -57,7 +57,7 @@ class _PublicacionesPageState extends State<PublicacionesPage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[800], // Color de fondo del botón
                       ),
-                      child: Text(
+                      child: const Text(
                         'Ver Perfil',
                         style: TextStyle(
                           color: Colors.white,
@@ -70,19 +70,19 @@ class _PublicacionesPageState extends State<PublicacionesPage> {
             ),
           ),
           Card(
-            margin: EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.symmetric(vertical: 10),
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Publicación 2',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  SizedBox(height: 5),
-                  Text('Descripción de la publicación 2.'),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 5),
+                  const Text('Descripción de la publicación 2.'),
+                  const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
                     child: ElevatedButton(
@@ -90,7 +90,7 @@ class _PublicacionesPageState extends State<PublicacionesPage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[800], // Color de fondo del botón
                       ),
-                      child: Text(
+                      child: const Text(
                         'Ver Perfil',
                         style: TextStyle(
                           color: Colors.white,
@@ -103,19 +103,19 @@ class _PublicacionesPageState extends State<PublicacionesPage> {
             ),
           ),
           Card(
-            margin: EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.symmetric(vertical: 10),
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Publicación 3',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  SizedBox(height: 5),
-                  Text('Descripción de la publicación 3.'),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 5),
+                  const Text('Descripción de la publicación 3.'),
+                  const SizedBox(height: 10),
                   Align(
                     alignment: Alignment.centerRight,
                     child: ElevatedButton(
@@ -123,7 +123,7 @@ class _PublicacionesPageState extends State<PublicacionesPage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[800], // Color de fondo del botón
                       ),
-                      child: Text(
+                      child: const Text(
                         'Ver Perfil',
                         style: TextStyle(
                           color: Colors.white,

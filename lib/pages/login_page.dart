@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -8,6 +11,80 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: const TextStyle(fontFamily: 'Poppins', fontSize: 14, color: Colors.white),
+        ),
+        backgroundColor: Colors.redAccent,
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  }
+
+  bool _isValidEmail(String email) {
+    final RegExp emailRegex = RegExp(
+      r'^[^\s@]+@[^\s@]+\.[^\s@]+$', // Basic regex for email validation
+      caseSensitive: false,
+    );
+    return emailRegex.hasMatch(email);
+  }
+
+  Future<void> _login() async {
+    final String email = _emailController.text;
+    final String password = _passwordController.text;
+
+    if (email.isEmpty) {
+      _showSnackBar('Por favor, ingrese un correo electrónico.');
+      return;
+    }
+
+    if (!_isValidEmail(email)) {
+      _showSnackBar('Por favor, ingrese un correo electrónico válido.');
+      return;
+    }
+
+    if (password.isEmpty) {
+      _showSnackBar('Por favor, ingrese una contraseña.');
+      return;
+    }
+
+    if (password.length < 6) {
+      _showSnackBar('Por favor, ingrese una contraseña de al menos 6 caracteres.');
+      return;
+    }
+
+    final response = await http.post(
+      Uri.parse('http://100.27.164.138:4000/api/auth/login'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': email,
+        'password': password,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = jsonDecode(response.body);
+      final String token = data['token'];
+
+      // Guardar el token en el almacenamiento local
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', token);
+
+      Navigator.pushNamed(context, '/home');
+    } else {
+      // Mostrar un mensaje de error
+      _showSnackBar('Error: ${response.body}');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +99,6 @@ class _LoginPageState extends State<LoginPage> {
                 size: 110,
               ),
               const SizedBox(height: 30),
-              // hello again!
               Text(
                 'Hola de nuevo !'.toUpperCase(),
                 style: const TextStyle(
@@ -48,7 +124,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              // email textfield // Correo electronico------------------------
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
@@ -57,14 +132,15 @@ class _LoginPageState extends State<LoginPage> {
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 20.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
                     child: TextField(
-                      style: TextStyle(
+                      controller: _emailController,
+                      style: const TextStyle(
                         fontSize: 12,
                         fontFamily: 'Poppins',
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Correo electronico',
                       ),
@@ -73,7 +149,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 10),
-              // password textfield  // Contraseña --------------------
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
@@ -82,15 +157,16 @@ class _LoginPageState extends State<LoginPage> {
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 20.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
                     child: TextField(
-                      style: TextStyle(
+                      controller: _passwordController,
+                      style: const TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 12,
                       ),
                       obscureText: true,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Contraseña',
                       ),
@@ -99,13 +175,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 10),
-              // sing in button------------------
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
+                  onTap: _login,
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
@@ -127,7 +200,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 25),
-              // not a member ? register now
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -147,9 +219,9 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
-                        elevation: 0, // Eliminar la sombra del botón
+                        elevation: 0,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6), // Puedes ajustar el radio aquí
+                          borderRadius: BorderRadius.circular(6),
                         ),
                       ),
                       child: const Text(

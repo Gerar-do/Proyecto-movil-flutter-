@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Column(
           children: [
@@ -67,9 +67,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             // Cards
-            const SizedBox(height: 25),
-            Container(
-              height: 200,
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 150,
               child: PageView(
                 scrollDirection: Axis.horizontal,
                 controller: _controller,
@@ -84,13 +84,15 @@ class _HomePageState extends State<HomePage> {
               controller: _controller,
               count: 2,
               effect: ExpandingDotsEffect(
-                activeDotColor: Colors.grey.shade700,
+                activeDotColor: Colors.grey.shade700 ,
+
               ),
             ),
             const SizedBox(height: 25),
             // Buttons
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+
+              padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -102,24 +104,22 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Container(
-                          height: 80,
-                          padding: EdgeInsets.all(2),
+                          height: 60,
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Colors.blueAccent[100],
+
                             borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
-                                color: Colors.white,
-                                blurRadius: 40,
-                                spreadRadius: 10,
+
                               )
                             ],
                           ),
                           child: Center(
-                            child: Image.asset('assets/images/especialista.png'),
+                            child: Image.asset('assets/images/img3.png'),
                           ),
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Text(
                           'Doctores',
                           style: TextStyle(
@@ -140,24 +140,22 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Container(
-                          height: 80,
-                          padding: EdgeInsets.all(1),
+                          height: 60,
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Colors.grey[700],
+
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white,
-                                blurRadius: 40,
-                                spreadRadius: 10,
+                                color: Colors.blue.shade900,
                               )
                             ],
                           ),
                           child: Center(
-                            child: Image.asset('assets/images/farmacia.png'),
+                            child: Image.asset('assets/images/img2.png'),
                           ),
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Text(
                           'Farmacias',
                           style: TextStyle(
@@ -178,24 +176,22 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Container(
-                          height: 80,
-                          padding: EdgeInsets.all(1),
+                          height: 60,
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Colors.yellow[100],
+
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white,
-                                blurRadius: 40,
-                                spreadRadius: 10,
+                                color: Colors.yellow.shade700,
                               )
                             ],
                           ),
                           child: Center(
-                            child: Image.asset('assets/images/doctor2.png'),
+                            child: Image.asset('assets/images/img1.png'),
                           ),
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Text(
                           'Especialistas',
                           style: TextStyle(
@@ -213,7 +209,7 @@ class _HomePageState extends State<HomePage> {
             ),
             // Publicaciones
             Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: const EdgeInsets.all(21.0),
               child: GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/publicaciones');
@@ -225,15 +221,16 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         // Icono
                         Container(
+                          padding: const EdgeInsets.all(9),
                           height: 60,
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
+                            color: Colors.grey[800],
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          child: Image.asset('assets/images/publicaciones.png'),
+                          child: Image.asset('assets/images/health_16504185.png'),
                         ),
-                        SizedBox(width: 20),
-                        Column(
+                        const SizedBox(width: 20),
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -251,7 +248,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        Icon(Icons.arrow_forward),
+                        const Icon(Icons.arrow_forward),
                       ],
                     ),
                   ],

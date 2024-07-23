@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class DoctoresPage extends StatelessWidget {
+  const DoctoresPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white,
         ),
         backgroundColor: Colors.black,
-        title: Text('Doctores', style: TextStyle(
+        title: const Text('Doctores', style: TextStyle(
           color: Colors.white,
           fontFamily: 'Montserrat',
           fontSize: 12,
@@ -18,7 +20,7 @@ class DoctoresPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: 10, // Número de publicaciones, puedes cambiarlo según necesites
         itemBuilder: (context, index) {
-          return PostCard();
+          return const PostCard();
         },
       ),
     );
@@ -26,27 +28,29 @@ class DoctoresPage extends StatelessWidget {
 }
 
 class PostCard extends StatelessWidget {
+  const PostCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(27),
+      margin: const EdgeInsets.all(27),
       child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Nomnre del doctor ',
+            const Text(
+              'Nombre del doctor ',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'Este es el contenido de la publicación. Aquí puedes escribir el contenido detallado de tu publicación.',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Align(
               alignment: Alignment.centerRight,
               child: ElevatedButton(
@@ -57,7 +61,7 @@ class PostCard extends StatelessWidget {
                   // Acción al presionar el botón
                   print('Cita realizada');
                 },
-                child: Text('Hacer Cita',
+                child: const Text('Hacer Cita',
                 style: TextStyle(
                   color: Colors.white,
                 ),

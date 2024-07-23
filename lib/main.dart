@@ -27,13 +27,13 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoginPage(),
       routes: {
-        '/home': (context) => HomePage(),
-        '/register': (context) => RegisterPage(),
-        '/publicaciones': (context) => PublicacionesPage(),
-        '/perfil': (context) => UsuarioPage(),
-       '/doctores': (context) => DoctoresPage(),
-        '/farmacias': (context) =>FarmaciasPage(),
-       '/especialistas': (context) => EspecialistaPage(),
+        '/home': (context) => const HomePage(),
+        '/register': (context) => const RegisterPage(),
+        '/publicaciones': (context) => const PublicacionesPage(),
+        '/perfil': (context) => const UsuarioPage(),
+       '/doctores': (context) => const DoctoresPage(),
+        '/farmacias': (context) =>const FarmaciasPage(),
+       '/especialistas': (context) => const EspecialistaPage(),
       },
     );
   }

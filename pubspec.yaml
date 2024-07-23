@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^0.13.3
+  shared_preferences: ^2.0.15
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,6 +43,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -56,16 +60,16 @@ flutter:
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
-  # the material Icons class.
+  # the material Icons class.S
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/doctor2.png
-     - assets/images/especialista.png
-     - assets/images/farmacia.png
-     - assets/images/doctor_logo.png
-     - assets/images/publicaciones.png
+     - assets/images/fondoCard.png
+     - assets/images/img3.png
+     - assets/images/img2.png
+     - assets/images/img1.png
+     - assets/images/health_16504185.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

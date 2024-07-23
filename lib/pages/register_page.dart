@@ -14,16 +14,16 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         backgroundColor: Colors.black87,
         iconTheme: const IconThemeData(
-          color: Colors.white
+            color: Colors.white
         ),
         title: const Text('volver',
 
-        style:TextStyle(
-          fontFamily: 'Montserrat',
-          fontSize: 16,
-          color: Colors.white
+          style:TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 16,
+              color: Colors.white
 
-        ),
+          ),
         ),
       ),
       backgroundColor: Colors.white,
