@@ -1,4 +1,4 @@
-name: demo
+name: HealdConnect
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -31,7 +31,8 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.3
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.0.6
+  connectivity_plus: ^2.0.2
 
 
 
@@ -70,6 +71,8 @@ flutter:
      - assets/images/img2.png
      - assets/images/img1.png
      - assets/images/health_16504185.png
+     - assets/images/cerrar.png
+     - assets/images/admin.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,12 +1,13 @@
-import 'package:demo/pages/login_page.dart';
-import 'package:demo/pages/register_page.dart';
-import 'package:demo/pages/home_page.dart';
-import 'package:demo/pages/usuario_page.dart';
+import 'package:HealdConnect/pages/login_page.dart';
+import 'package:HealdConnect/pages/register_page.dart';
+import 'package:HealdConnect/pages/home_page.dart';
+import 'package:HealdConnect/pages/usuario_page.dart';
 import 'package:flutter/material.dart';
-import 'package:demo/pages/publicaciones_page.dart';
-import 'package:demo/pages/doctores_page.dart';
-import 'package:demo/pages/farmacias_page.dart';
-import 'package:demo/pages/especialistas_page.dart';
+import 'package:HealdConnect/pages/publicaciones_page.dart';
+import 'package:HealdConnect/pages/doctores_page.dart';
+import 'package:HealdConnect/pages/farmacias_page.dart';
+import 'package:HealdConnect/pages/especialistas_page.dart';
+import 'package:HealdConnect/pages/admin_page.dart';
 
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Medican',
+      title: 'HealdCoonect',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
        '/doctores': (context) => const DoctoresPage(),
         '/farmacias': (context) =>const FarmaciasPage(),
        '/especialistas': (context) => const EspecialistaPage(),
+        '/login': (context) => const LoginPage(),
+        '/admin': (context) => const AdminPage(),
       },
     );
   }
